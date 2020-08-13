@@ -37,7 +37,8 @@ import getopt  # per gestire gli input come variabili
 from datetime import datetime, date, timedelta
 
 spazio = "\n**************************************"
-
+print("Import sospeso")
+exit()
 try:
     opts, args = getopt.getopt(sys.argv[1:], "mf:p:",
                                ["help", "file=", "path="])

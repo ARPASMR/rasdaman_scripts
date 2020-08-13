@@ -39,10 +39,12 @@ for variable in ar:
     while date_dt <= (date_dt2) :
         try: 
             print(spazio)
-            file='{0}_32632_{1}.tiff'.format(variable,date_str)
+            file0='{0}_32632_{1}'.format(variable,date_str)
+            file='{0}.tiff'.format(file0)
             comando="curl \"http://localhost:8080/rasdaman/ows?&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID={0}_{1}&FORMAT=image/tiff\" > {2}".format(variable,date_str, file)
             #print(comando) 
             return0=os.system(comando)
+            translate= "gdal_translate -of AAIGrid {0}.tiff {0}.txt".format(file0)
             #print(return0)  
             print('Creo il json per importare il file')
             text = '{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", ' \
@@ -64,7 +66,10 @@ for variable in ar:
             out_file.close()
             comando_import = '/opt/rasdaman/bin/wcst_import.sh %s' % nomefile
             return1=os.system(comando_import)
-            print(return1)                                              
+            print(return1) 
+            if return1==0:
+                rimuovi='rm {0}*'.format(file0)
+                return2=os.system(rimuovi)                                          
         except:
             print ('No data to download for {0}'.format(date_str))
         date_dt = date_dt + timedelta(hours=1)
