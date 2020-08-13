@@ -83,8 +83,8 @@ print(dato)
 print(epsg)
 print(dataora)
 
-#nomecoverage='{0}_{1}'.format(dato,dataora)
-nomecoverage=dato
+nomecoverage='{0}_{1}'.format(dato,dataora)
+
 
 
 #cerco la risoluzione del raster
@@ -111,9 +111,7 @@ text = '{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", ' \
        '"mock": false, "automated": true, "retry": true, "retries": 5, ' \
        '"track_files": false }},  ' \
        '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{3}" ] }}, ' \
-       '"recipe": {{ "name": "time_series_irregular", "options": {{ "wms_import": false, ' \
-       '"time_parameter": {{ "filename": {{ "regex": "(.*)_(.*)_(.*)", "group": "3" }}, '\
-       '"datetime_format": "YYYYMMDDHH"}}, "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", '\
+       '"recipe": {{ "name": "map_mosaic", "options": {{ "wms_import": false, ' \
        '"tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(nomecoverage, path, epsg, nomeraster)
 
 
@@ -291,7 +289,7 @@ string_decoded = urllib.parse.quote(string)
 # print string_decoded
 
 print("###############################################")
-html_string = "service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={1}&wcpsQueryFragment={2}".format(nomecoverage, dato, string_decoded)
+html_string = "service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={}&abstract={}&wcpsQueryFragment={}".format(nomecoverage, dato, string_decoded)
 html_string_decoded=urllib.parse.quote(html_string)
 #comando="wget -o legenda.html \"http://localhost:8080/rasdaman/ows?{}\"".format(html_string_decoded)
 #using curl instead wget
