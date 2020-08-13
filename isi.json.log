@@ -1,0 +1,18 @@
+
+-------------------------------------------------------------------------------------
+[2020-08-11 15:26:16] Ingesting coverage 'isi_20200810'...
+[2020-08-11 15:26:16] 1/1 - file 'isi_20200810.txt' - grid domains [0:176,0:173] of size 0.34 MB; Total time to ingest file 0.15 s @ 2.27 MB/s.
+Result: success.
+-------------------------------------------------------------------------------------
+[2020-08-11 15:26:19] Ingesting coverage 'isi_202008'...
+[2020-08-11 15:26:20] 1/10 - file 'isi_20200801.txt' - grid domains [0,0:176,0:173] of size 0.15 MB; Total time to ingest file 0.13 s @ 1.15 MB/s.
+[2020-08-11 15:26:20] 2/10 - file 'isi_20200802.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.12 s @ 2.83 MB/s.
+[2020-08-11 15:26:20] 3/10 - file 'isi_20200803.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.12 s @ 2.83 MB/s.
+[2020-08-11 15:26:20] 4/10 - file 'isi_20200804.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.12 s @ 2.83 MB/s.
+[2020-08-11 15:26:20] 5/10 - file 'isi_20200805.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.11 s @ 3.09 MB/s.
+[2020-08-11 15:26:20] 6/10 - file 'isi_20200806.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.11 s @ 3.09 MB/s.
+[2020-08-11 15:26:20] 7/10 - file 'isi_20200807.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.13 s @ 2.62 MB/s.
+[2020-08-11 15:26:20] 8/10 - file 'isi_20200808.txt' - grid domains [0,0:176,0:173] of size 0.15 MB; Total time to ingest file 0.1 s @ 1.5 MB/s.
+[2020-08-11 15:26:20] 9/10 - file 'isi_20200809.txt' - grid domains [0,0:176,0:173] of size 0.15 MB; Total time to ingest file 0.1 s @ 1.5 MB/s.
+[2020-08-11 15:26:21] 10/10 - file 'isi_20200810.txt' - grid domains [0,0:176,0:173] of size 0.34 MB; Total time to ingest file 0.12 s @ 2.83 MB/s.
+Result: success.

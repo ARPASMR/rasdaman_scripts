@@ -1,0 +1,9 @@
+{"config": { "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": 
+"/tmp/", "crs_resolver": "http://localhost:8080/def/", "default_crs": 
+"http://localhost:8080/def/crs/EPSG/0/3003", "mock": false, "automated": true, "retry": 
+true, "retries": 5, "track_files": false }, "input": { "coverage_id": 
+"test_fwi_202008", "paths": [ "/opt/rasdaman/fwi_grid/fwi_20200802.txt" ] }, "recipe": 
+{ "name": "time_series_irregular", "options": {"time_parameter": { "filename": { 
+"regex": "(.*)_(.*)", "group": "2" }, "datetime_format": "YYYYMMDD"}, "time_crs": 
+"http://localhost:8080/def/crs/OGC/0/AnsiDate", "tiling": "ALIGNED [0:1023, 0:1023] 
+TILE SIZE 4194304" } } }
