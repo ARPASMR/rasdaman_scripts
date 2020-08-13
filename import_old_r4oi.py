@@ -45,6 +45,7 @@ for variable in ar:
             #print(comando) 
             return0=os.system(comando)
             translate= "gdal_translate -of AAIGrid {0}.tiff {0}.txt".format(file0)
+            return0=os.system(translate)
             #print(return0)  
             print('Creo il json per importare il file')
             text = '{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", ' \
@@ -52,11 +53,11 @@ for variable in ar:
                 '"default_crs": "http://localhost:8080/def/crs/EPSG/0/{2}",  ' \
                 '"mock": false, "automated": true, "retry": true, "retries": 5, ' \
                 '"track_files": true }},  ' \
-                '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{4}" ] }}, ' \
+                '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{4}.txt" ] }}, ' \
                 '"recipe": {{ "name": "time_series_irregular", "options": {{ "wms_import": false, ' \
                 '"time_parameter": {{ "filename": {{ "regex": "(.*)_(.*)_(.*)", "group": "3" }}, '\
                 '"datetime_format": "YYYYMMDDHH"}}, "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", '\
-                '"tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(variable, path, epsg, date_str, file)
+                '"tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(variable, path, epsg, date_str, file0)
             #print(text)
             print(spazio)
             #print('Importo il file')
