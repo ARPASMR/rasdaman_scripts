@@ -131,7 +131,7 @@ while i<len(dati):
 
     #print string_decoded
 
-    comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={0}&wcpsQueryFragment={2}\"".format(dati[i], string_decoded)
+    comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={0}&wcpsQueryFragment={1}\"".format(dati[i], string_decoded)
     print comando
     return_style=os.system (comando)
     print(return_style)
