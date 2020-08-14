@@ -46,7 +46,7 @@ for variable in ar:
             return0=os.system(comando)                                          
         except:
             print ('No data to remove for {0}'.format(date_str))
-        date_dt = date_dt + timedelta(months=1)
+        date_dt = date_dt + timedelta(days=31)
         date_str = date_dt.strftime('%Y%m')
         #print(date_str)
 
