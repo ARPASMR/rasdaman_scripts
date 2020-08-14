@@ -41,7 +41,7 @@ for variable in ar:
             print(spazio)
             file0='{0}_32632_{1}'.format(variable,date_str)
             file='{0}.tiff'.format(file0)
-            comando="curl \"http://localhost:8080/rasdaman/ows?&SERVICE=WCS&VERSION=2.0.1&REQUEST=DeleteCoverage&COVERAGEID={0}_{1}".format(variable,date_str)
+            comando="curl \"http://localhost:8080/rasdaman/ows?&SERVICE=WCS&VERSION=2.0.1&REQUEST=DeleteCoverage&COVERAGEID={0}_{1}\"".format(variable,date_str)
             #print(comando) 
             return0=os.system(comando)                                          
         except:
