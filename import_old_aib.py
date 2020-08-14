@@ -140,4 +140,5 @@ while i<len(dati):
     else:
 	print('ERRORE SU ASSOCIAZIONE STILE')
     os.system ("rm ows*")
+    i+=1
     
