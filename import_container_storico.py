@@ -114,7 +114,7 @@ while k>=1:
        '"default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  ' \
        '"mock": false, "automated": true, "retry": true, "retries": 5, ' \
        '"track_files": false }},  ' \
-       '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{2}" ] }}, ' \
+       '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{2}.txt" ] }}, ' \
        '"recipe": {{ "name": "time_series_irregular", "options": {{ "wms_import": false, ' \
        '"time_parameter": {{ "filename": {{ "regex": "(.*)_(.*)", "group": "2" }}, '\
        '"datetime_format": "YYYYMMDD"}}, "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", '\
