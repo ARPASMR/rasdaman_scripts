@@ -9,7 +9,7 @@ import urllib
 
 from datetime import datetime, date, timedelta
 
-spazio="\n**************************************"
+spazio="**************************************"
 
 interval=5
 #k sono i giorni in cui devo andare indietro
@@ -46,7 +46,7 @@ while k>=1:
     mese_numero=int(yesterday.strftime("%m"))
 
 
-    print day
+    print(day)
     #print mese_numero
     #exit()
 
@@ -59,7 +59,7 @@ while k>=1:
     #path="/home/meteo/programmi/fwi_grid/indici/ana/"
 
 
-    new_percorso='/opt/rasdaman/fwi_grid/';
+    new_percorso='/opt/rasdaman/fwi_grid/'
 
     #connessione vpn cisco per server fuori da server ARPA
     #connect="echo meteoaib | sudo -S vpnc arpa_lombardia"
@@ -81,7 +81,7 @@ while k>=1:
     # import in rasdaman
     dati=['bui', 'dc', 'dmc', 'ffmc', 'fwi', 'isi']
 
-    print len(dati)
+    print(len(dati))
 
     i=0
 
@@ -91,6 +91,7 @@ while k>=1:
         nome_dato="%s_%s" % (dati[i], day) # 
         nome_dato_mese="%s_%s" % (dati[i], mese)
         print(spazio)
+        print(new_percorso)
         print(nome_dato)
         print(spazio)
         ###########################################################
