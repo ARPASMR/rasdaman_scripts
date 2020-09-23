@@ -100,10 +100,24 @@ while k>=1:
         #  "default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  "mock": false, "automated": true, "retry":true, "retries": 5, "track_files": false }, 
         #  "input": { "coverage_id": "%s", "paths": [ "%s%s.txt" ] }, "recipe": { "name": "map_mosaic", "options": { "wms_import": false,
         #  "tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }  } }' % ( nome_dato, new_percorso, nome_dato)
-        text='{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": "/tmp/", "crs_resolver":"http://localhost:8080/def/",'\
-' "default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  "mock": false, "automated": true, "retry": true, "retries": 5, "track_files": false }},'\
-'  "input": {{ "coverage_id": "{0}", "paths": [ "{1}{2}.txt" ] }}, "recipe": {{ "name": "map_mosaic",'\
-' "options": {{ "wms_import": false, "tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(dati[i], new_percorso, nome_dato)
+        
+        #text='{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": "/tmp/", "crs_resolver":"http://localhost:8080/def/",'\
+#' "default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  "mock": false, "automated": true, "retry": true, "retries": 5, "track_files": false }},'\
+#'  "input": {{ "coverage_id": "{0}", "paths": [ "{1}{2}.txt" ] }}, "recipe": {{ "name": "map_mosaic",'\
+#' "options": {{ "wms_import": false, "tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(dati[i], new_percorso, nome_dato)
+        
+         # "options": {"time_parameter": { "filename": { "regex": "(.*)_(.*)", "group": "2" }, "datetime_format": "YYYYMMDD"},
+        
+        text = '{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", ' \
+       '"tmp_directory": "/tmp/", "crs_resolver": "http://localhost:8080/def/", ' \
+       '"default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  ' \
+       '"mock": false, "automated": true, "retry": true, "retries": 5, ' \
+       '"track_files": false }},  ' \
+       '"input": {{ "coverage_id": "{0}", "paths": [ "{1}/{2}" ] }}, ' \
+       '"recipe": {{ "name": "time_series_irregular", "options": {{ "wms_import": false, ' \
+       '"time_parameter": {{ "filename": {{ "regex": "(.*)_(.*)", "group": "2" }}, '\
+       '"datetime_format": "YYYYMMDD"}}, "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", '\
+       '"tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }}  }} }}'.format(dati[i], new_percorso, nome_dato)
         nomefile= "%s.json"% dati[i]    
         out_file = open(nomefile,"w")
         out_file.write(text)
@@ -165,7 +179,12 @@ while k>=1:
         
         ###########################################################
         #riepilogo mensile
-        #text='{"config": { "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": "/tmp/", "crs_resolver": "http://localhost:8080/def/", "default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  "mock": false, "automated": true, "retry":true, "retries": 5, "track_files": false },  "input": { "coverage_id": "%s", "paths": [ "%s%s*" ] }, "recipe": { "name": "time_series_irregular", "options": {"time_parameter": { "filename": { "regex": "(.*)_(.*)", "group": "2" }, "datetime_format": "YYYYMMDD"}, "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", "tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }  } }' % ( nome_dato_mese, new_percorso, nome_dato_mese)
+        #text='{"config": { "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": "/tmp/", "crs_resolver": "http://localhost:8080/def/",
+        #  "default_crs": "http://localhost:8080/def/crs/EPSG/0/3003",  "mock": false, "automated": true, "retry":true, "retries": 5, "track_files": false }, 
+        #  "input": { "coverage_id": "%s", "paths": [ "%s%s*" ] }, "recipe": { "name": "time_series_irregular", 
+        # "options": {"time_parameter": { "filename": { "regex": "(.*)_(.*)", "group": "2" }, "datetime_format": "YYYYMMDD"}, 
+        # "time_crs": "http://localhost:8080/def/crs/OGC/0/AnsiDate", "tiling": "ALIGNED [0:1023, 0:1023] TILE SIZE 4194304" }  } }' 
+        # % ( nome_dato_mese, new_percorso, nome_dato_mese)
         #nomefile= "%s.json"% dati[i]
         #out_file = open(nomefile,"w")
         #out_file.write(text)

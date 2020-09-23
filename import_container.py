@@ -69,9 +69,9 @@ i=0
 while i<len(dati):
     nome_dato="%s_%s" % (dati[i], day) # 
     nome_dato_mese="%s_%s" % (dati[i], mese)
-    print spazio
-    print nome_dato
-    print spazio
+    print(spazio)
+    print(nome_dato)
+    print(spazio)
     ###########################################################
     #insert file giornaliero
     text='{{"config": {{ "service_url": "http://localhost:8080/rasdaman/ows", "tmp_directory": "/tmp/", "crs_resolver":"http://localhost:8080/def/",'\
@@ -136,7 +136,7 @@ while i<len(dati):
     #comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={}&abstract={}&wcpsQueryFragment={}\"".format(nome_dato, dati[i], string_decoded)
     comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={0}&wcpsQueryFragment={1}\"".format(dati[i], string_decoded)
 
-    print comando
+    print(comando)
     return_style=os.system (comando)
     print(return_style)
     if return_style==0:
@@ -163,4 +163,4 @@ while i<len(dati):
 #     print "%d s of pause in order to restart the importer" % interval
 #     print spazio
 #     time.sleep(interval)
-#     i+=1
+    i+=1
