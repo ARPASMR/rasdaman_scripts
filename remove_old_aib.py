@@ -24,9 +24,10 @@ print('Path is ',path)
 
 #exit()
 #start from 2020-05-18 
-date_str1='20181231'
+#date_str1='20181231'
+date_str1='20200801'
 date_dt1 = datetime.strptime(date_str1, '%Y%m%d')
-date_str2='20200813'
+date_str2='20200923'
 date_dt2 = datetime.strptime(date_str2, '%Y%m%d')
 
 
