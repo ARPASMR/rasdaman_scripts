@@ -144,9 +144,16 @@ while i<len(dati):
 
     #print string_decoded
 
-    #comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={}&abstract={}&wcpsQueryFragment={}\"".format(nome_dato, dati[i], string_decoded)
+    comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={0}&wcpsQueryFragment={1}\"".format(dati[i], string_decoded)
+    print(comando)
     
-    os.system ("rm ows*")
+    return_style=os.system(comando)
+    if return_style==0:
+        print('IMPORT STYLE APPLICATO CON SUCCESSO')
+    else:
+        print('PROBLEMI CON LO STILE')
+    #print('return2',return2)
+    #os.system ("rm ows*")
     
     
     ###########################################################
