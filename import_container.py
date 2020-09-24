@@ -145,15 +145,7 @@ while i<len(dati):
     #print string_decoded
 
     #comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={}&abstract={}&wcpsQueryFragment={}\"".format(nome_dato, dati[i], string_decoded)
-    comando = "curl \"http://localhost:8080/rasdaman/ows?service=WMS&version=1.3.0&request=InsertStyle&name=indici&layer={0}&abstract={0}&wcpsQueryFragment={1}\"".format(dati[i], string_decoded)
-
-    print(comando)
-    return_style=os.system (comando)
-    print(return_style)
-    if return_style==0:
-        print('STILE ASSOCIATO AL WMS CON SUCCESSO')
-    else:
-	print('ERRORE SU ASSOCIAZIONE STILE')
+    
     os.system ("rm ows*")
     
     
