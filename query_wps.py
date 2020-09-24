@@ -22,6 +22,7 @@ comando = "curl \"{}{}\"".format(url_WCPS, query_decoded)
 
 print(comando)
 return2=os.system(comando)
+print('\n')
 #print(return2)
 if return2==0:
     print('OK')
