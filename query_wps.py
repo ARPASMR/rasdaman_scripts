@@ -13,14 +13,16 @@ import urllib.parse
 
 
 print("This is the name of the script: ", sys.argv[0])
+print("This is the host", sys.argv[1])
+print("This is the query", sys.argv[2])
+
 
 host=sys.argv[1]
-
-
 url_WCPS='http://{}/rasdaman/ows?service=WCS&version=2.0.1&REQUEST=ProcessCoverage&QUERY='.format(host)
 
 #query='for $c in (fwi) return encode($c[X(1515230),Y(5037450),ansi("2020-08-01":"2020-08-31")], "application/json")'
 query=sys.argv[2]
+
 
 query_decoded=urllib.parse.quote(query)
 
