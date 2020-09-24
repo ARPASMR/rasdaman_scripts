@@ -13,8 +13,8 @@ import urllib.parse
 
 
 print("This is the name of the script: ", sys.argv[0])
-print("This is the host", sys.argv[1])
-print("This is the query", sys.argv[2])
+print("This is the host:\n", sys.argv[1])
+print("This is the query:\n", sys.argv[2])
 
 
 host=sys.argv[1]
