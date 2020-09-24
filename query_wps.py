@@ -1,7 +1,8 @@
 #! /usr/bin/env python
 #   Gter Copyleft 2020
 #   Roberto Marzocchi
-#   script  per rimuovere i vecchi dati erroneamente caricati singolarmente in un unico coverage (uno per ogni variabile dal 18 maggio al 13 agosto)
+#   script  perlanciare query wps
+# es. python3 query_wps.py localhost:8080 'for $c in (fwi) return encode($c[X(1515230),Y(5037450),ansi("2020-08-01":"2020-08-31")], "application/json")'
 
 
 # library added by GTER
@@ -11,9 +12,15 @@ import urllib.request
 import urllib.parse
 
 
-url_WCPS='http://localhost:8080/rasdaman/ows?service=WCS&version=2.0.1&REQUEST=ProcessCoverage&QUERY='
+print("This is the name of the script: ", sys.argv[0])
 
-query='for $c in (fwi) return encode($c[X(1515230),Y(5037450),ansi("2020-08-01":"2020-08-31")], "application/json")'
+host=sys.argv[1]
+
+
+url_WCPS='http://{}/rasdaman/ows?service=WCS&version=2.0.1&REQUEST=ProcessCoverage&QUERY='.format(host)
+
+#query='for $c in (fwi) return encode($c[X(1515230),Y(5037450),ansi("2020-08-01":"2020-08-31")], "application/json")'
+query=sys.argv[2]
 
 query_decoded=urllib.parse.quote(query)
 
